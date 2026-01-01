@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { getProfile, updateProfile, updateProfileSchema, type UpdateProfileData } from '../services/auth';
-import { useAuth } from '../context/AuthContext';
 import { User, Mail, Lock, Save } from 'lucide-react';
 
 const Profile: React.FC = () => {

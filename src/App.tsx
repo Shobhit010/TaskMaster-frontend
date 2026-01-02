@@ -7,6 +7,8 @@ import Profile from './pages/Profile';
 import ProtectedLayout from './layouts/ProtectedLayout';
 import { useAuth } from './context/AuthContext';
 
+import Landing from './pages/Landing';
+
 const App: React.FC = () => {
   const { isLoading } = useAuth();
 
@@ -14,13 +16,14 @@ const App: React.FC = () => {
 
   return (
     <Routes>
+      <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route element={<ProtectedLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
       </Route>
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };
